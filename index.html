@@ -9,129 +9,121 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root {
-    --primary: #7b2cbf;
-    --primary-light: #c77dff;
-    --bg-dark: #0d0d1a;
-    --bg-card: #1a1a2e;
-    --text-main: #ffffff;
-    --text-dim: #b0b0b0;
+:root{
+    --primary:#7b2cbf;
+    --primary-light:#c77dff;
+    --bg-dark:#0d0d1a;
+    --bg-card:#1a1a2e;
+    --text-main:#fff;
+    --text-dim:#b0b0b0;
 }
 
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+*{box-sizing:border-box;scroll-behavior:smooth;}
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-    padding-top: 80px;
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--bg-dark);
+    color:var(--text-main);
+    line-height:1.6;
+    overflow-x:hidden;
+    padding-top:80px;
 }
 
 /* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 10%;
-    background: rgba(13,13,26,0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    background:rgba(13,13,26,0.95);
+    z-index:1000;
 }
 
-nav h2 {
-    color: var(--primary-light);
-    cursor: pointer;
-}
+nav h2{color:var(--primary-light);cursor:pointer;}
 
-.nav-links a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
+.nav-links a{
+    color:white;
+    margin-left:15px;
+    text-decoration:none;
+    font-size:0.9rem;
 }
 
 /* HERO */
-#home {
-    height: 100vh;
-    background: linear-gradient(rgba(13,13,26,0.4), rgba(13,13,26,0.7)),
+#home{
+    height:100vh;
+    background:
+    linear-gradient(rgba(13,13,26,0.4),rgba(13,13,26,0.7)),
     url('batokungu/hero.jpg.JPG');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:0 10%;
 }
 
 /* SECTION */
-section {
-    padding: 80px 10%;
-}
+section{padding:80px 10%;}
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-light);
-    margin-bottom: 30px;
+.section-title{
+    text-align:center;
+    color:var(--primary-light);
+    margin-bottom:30px;
 }
 
 /* GALLERY */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-    gap: 15px;
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:15px;
 }
 
-.gallery-item {
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
+.gallery-item{
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: 0.3s;
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:0.3s;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
+.gallery-item img:hover{
+    transform:scale(1.05);
 }
 
 /* LIGHTBOX */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
+.lightbox{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
 }
 
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
 }
 
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
+.lightbox-close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:2rem;
+    color:white;
+    cursor:pointer;
 }
 
 </style>
@@ -175,25 +167,22 @@ section {
 </div>
 
 <script>
-// LIGHTBOX FUNCTION
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-const closeLightbox = document.getElementById("closeLightbox");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightboxImg");
+const closeLightbox=document.getElementById("closeLightbox");
 
-document.querySelectorAll(".gallery-item img").forEach(img => {
-    img.onclick = () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-    };
+document.querySelectorAll(".gallery-item img").forEach(img=>{
+    img.onclick=()=>{
+        lightbox.style.display="flex";
+        lightboxImg.src=img.src;
+    }
 });
 
-closeLightbox.onclick = () => {
-    lightbox.style.display = "none";
-};
+closeLightbox.onclick=()=>lightbox.style.display="none";
 
-lightbox.onclick = (e) => {
-    if (e.target === lightbox) {
-        lightbox.style.display = "none";
+lightbox.onclick=(e)=>{
+    if(e.target===lightbox){
+        lightbox.style.display="none";
     }
 };
 </script>
