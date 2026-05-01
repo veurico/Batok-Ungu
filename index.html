@@ -365,33 +365,8 @@
 <!-- GALLERY SECTION -->
 <section id="gallery">
     <h2 class="section-title">Gallery Momen</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600" alt="Kebersamaan Batok Ungu">
-            <div class="gallery-overlay"><span>Momen Kumpul Rutin</span></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?w=600" alt="Kegiatan Sosial">
-            <div class="gallery-overlay"><span>Kegiatan Bakti Sosial</span></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600" alt="Liburan Bersama">
-            <div class="gallery-overlay"><span>Wisata Bersama</span></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600" alt="Diskusi Santai">
-            <div class="gallery-overlay"><span>Kopi Darat (Kopdar)</span></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600" alt="Acara Tahunan">
-            <div class="gallery-overlay"><span>Anniversary Batok Ungu</span></div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Solidaritas">
-            <div class="gallery-overlay"><span>Semangat Kekeluargaan</span></div>
-        </div>
-    </div>
-</section>
+    <div class="gallery-grid" id="galleryGrid"></div>
+</section> 
 
 <!-- CONTACT SECTION -->
 <section id="contact">
@@ -552,5 +527,30 @@
     window.onload = setupApp;
 </script>
 
+    <script>
+const images = [
+    "batokungu/IMG_0442.JPG",
+    "batokungu/1696067063265.jpg",
+    "batokungu/1696521288470.jpg",
+    "batokungu/WhatsApp Image 2026-01-14 at 15.08.54.jpeg"
+];
+
+const gallery = document.getElementById("galleryGrid");
+
+images.forEach(img => {
+    const div = document.createElement("div");
+    div.className = "gallery-item";
+
+    div.innerHTML = `
+        <img src="${img}">
+        <div class="gallery-overlay">
+            <span>Batok Ungu Moment</span>
+        </div>
+    `;
+
+    gallery.appendChild(div);
+});
+</script>
+    
 </body>
 </html>
